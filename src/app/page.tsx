@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import BrandStory from "@/components/home/BrandStory";
+import VenturesSection from "@/components/home/VenturesSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import StatsSection from "@/components/home/StatsSection";
 import GlobalPresence from "@/components/home/GlobalPresence";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Hero />
       <BrandStory />
+      <VenturesSection />
       <ServicesGrid />
       <StatsSection />
       <GlobalPresence />

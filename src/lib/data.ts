@@ -42,12 +42,156 @@ export type NavLink = { href: string; label: string };
 
 export const navLinks: NavLink[] = [
   { href: "/about", label: "About" },
+  { href: "/ventures", label: "Ventures" },
   { href: "/services", label: "Services" },
   { href: "/solutions", label: "Solutions" },
   { href: "/presence", label: "Global Presence" },
   { href: "/portfolio", label: "Case Studies" },
   { href: "/blog", label: "Insights" },
   { href: "/contact", label: "Contact" },
+];
+
+// ---------------------------------------------------------------------------
+// Group brand pillars — the through-line of the DHURTA umbrella brand.
+// ---------------------------------------------------------------------------
+
+export type GroupPillar = {
+  name: string;
+  sanskrit: string;
+  description: string;
+  icon: string;
+  color: string;
+};
+
+export const groupPillars: GroupPillar[] = [
+  {
+    name: "Trust",
+    sanskrit: "विश्वासः",
+    description:
+      "Privacy-first, verifiable engineering. Zero telemetry, zero servers where none are needed — code you can read, claims you can check.",
+    icon: "shield",
+    color: "gold",
+  },
+  {
+    name: "Technology",
+    sanskrit: "तन्त्रज्ञानम्",
+    description:
+      "A shipping product ecosystem, not a slide deck. Browser, communication, and information tools that exist today and are used today.",
+    icon: "cpu",
+    color: "teal",
+  },
+  {
+    name: "Culture",
+    sanskrit: "संस्कृतिः",
+    description:
+      "A Sanskrit name worn proudly — Dhurta, the clever one. Products designed to feel native in every script, language, and market.",
+    icon: "globe",
+    color: "blue",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Group ventures — real, shipping products of the Dhurta group.
+// ---------------------------------------------------------------------------
+
+export type Venture = {
+  slug: string;
+  name: string;
+  devanagari: string;
+  tagline: string;
+  description: string;
+  pillar: string;
+  status: "Shipping";
+  icon: string;
+  color: string;
+  highlights: string[];
+  links: { label: string; href: string }[];
+};
+
+export const ventures: Venture[] = [
+  {
+    slug: "dhurta-browser",
+    name: "Dhurta Browser",
+    devanagari: "धूर्त",
+    tagline: "The flagship. A privacy-first browser with zero telemetry.",
+    description:
+      "Our flagship product — a browser built on a simple promise: your browsing belongs to you. No telemetry, no phoning home, no dark-pattern defaults. Open source, so the promise is verifiable, not marketing.",
+    pillar: "Trust",
+    status: "Shipping",
+    icon: "compass",
+    color: "gold",
+    highlights: ["Zero telemetry, by design", "Open source & auditable", "Privacy-first defaults"],
+    links: [
+      { label: "dhurta.com", href: "https://dhurta.com" },
+      { label: "GitHub", href: "https://github.com/prashantkeshr/Dhurta" },
+    ],
+  },
+  {
+    slug: "dhurta-connect",
+    name: "Dhurta Connect",
+    devanagari: "संपर्क",
+    tagline: "Zero-server, end-to-end encrypted P2P communication.",
+    description:
+      "Chat, calls, and file sharing with no server in the middle — connections are peer-to-peer and end-to-end encrypted. There is no database of your conversations because there is no server to keep one.",
+    pillar: "Trust",
+    status: "Shipping",
+    icon: "message-circle",
+    color: "teal",
+    highlights: ["Peer-to-peer, zero servers", "End-to-end encrypted", "Chat, calls & file share"],
+    links: [{ label: "dhurta.com", href: "https://dhurta.com" }],
+  },
+  {
+    slug: "dhurta-setu",
+    name: "Dhurta Setu",
+    devanagari: "सेतु",
+    tagline: "A curated web index — your bridge to the useful internet.",
+    description:
+      "Setu — Sanskrit for bridge. A hand-curated index of the web that values signal over scale: the useful, the credible, and the culturally rich, organized so you find them without wading through noise.",
+    pillar: "Culture",
+    status: "Shipping",
+    icon: "library",
+    color: "blue",
+    highlights: ["Hand-curated, not crawled", "Signal over scale", "An information bridge"],
+    links: [{ label: "dhurta.com", href: "https://dhurta.com" }],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Future sectors — honest roadmap, not fake divisions.
+// ---------------------------------------------------------------------------
+
+export type FutureSector = {
+  name: string;
+  description: string;
+  icon: string;
+};
+
+export const futureSectors: FutureSector[] = [
+  {
+    name: "IT & Cybersecurity",
+    description: "Extending the trust discipline of our products into security engineering and managed defense.",
+    icon: "shield-check",
+  },
+  {
+    name: "Artificial Intelligence",
+    description: "Applied AI built with the same privacy-first ethos — intelligence without surveillance.",
+    icon: "brain",
+  },
+  {
+    name: "Design",
+    description: "A design practice rooted in the multi-script, culturally fluent craft of the Dhurta brand.",
+    icon: "pen-tool",
+  },
+  {
+    name: "Infrastructure",
+    description: "Resilient digital and physical infrastructure, engineered for uptime across regions.",
+    icon: "server",
+  },
+  {
+    name: "Mechanical & Electrical",
+    description: "Long-horizon ambitions in hardware and engineering — the group's frontier sector.",
+    icon: "cog",
+  },
 ];
 
 export type Service = {

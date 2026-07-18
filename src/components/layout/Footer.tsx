@@ -6,6 +6,13 @@ import { ArrowUpRight } from "lucide-react";
 import { navLinks, uiLanguages } from "@/lib/data";
 import { LinkedInIcon, XIcon, InstagramIcon, GitHubIcon } from "@/components/ui/SocialIcons";
 
+const ecosystemLinks = [
+  { label: "dhurta.com — Products", href: "https://dhurta.com" },
+  { label: "Dhurta Browser on GitHub", href: "https://github.com/prashantkeshr/Dhurta" },
+  { label: "Browser Releases", href: "https://github.com/prashantkeshr/Dhurta/releases" },
+  { label: "Group Ventures", href: "/ventures" },
+];
+
 const scriptSnippets = [
   { text: "धूर्त", font: "font-devanagari" },
   { text: "ধূর্ত", font: "font-bengali" },
@@ -29,7 +36,7 @@ export default function Footer() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <span className="font-display text-3xl font-bold text-white">
               DHU<span className="text-gradient-gold">RTA</span>
@@ -40,10 +47,16 @@ export default function Footer() {
               challenges, anywhere in the world.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              {[LinkedInIcon, XIcon, InstagramIcon, GitHubIcon].map((Icon, i) => (
+              {[
+                { Icon: LinkedInIcon, href: "#" },
+                { Icon: XIcon, href: "#" },
+                { Icon: InstagramIcon, href: "#" },
+                { Icon: GitHubIcon, href: "https://github.com/prashantkeshr/Dhurta" },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  {...(href !== "#" && { target: "_blank", rel: "noopener noreferrer" })}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-light transition-all hover:border-gold/50 hover:text-gold"
                 >
                   <Icon size={16} />
@@ -71,6 +84,45 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-gold">
+              Ecosystem
+            </h4>
+            <ul className="space-y-2.5">
+              {ecosystemLinks.map((link) =>
+                link.href.startsWith("/") ? (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-1 text-sm text-gray-light transition-colors hover:text-white"
+                    >
+                      {link.label}
+                      <ArrowUpRight
+                        size={13}
+                        className="opacity-0 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      />
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1 text-sm text-gray-light transition-colors hover:text-white"
+                    >
+                      {link.label}
+                      <ArrowUpRight
+                        size={13}
+                        className="opacity-0 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      />
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
