@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -37,7 +38,15 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="group flex items-center gap-2">
+        <Link href="/" className="group flex items-center gap-2.5">
+          <Image
+            src="/dhurta-logo.png"
+            alt="Dhurta emblem"
+            width={38}
+            height={38}
+            priority
+            className="h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-110"
+          />
           <span className="font-display text-2xl font-bold tracking-wide text-white">
             DHU<span className="text-gradient-gold">RTA</span>
           </span>

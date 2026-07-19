@@ -113,6 +113,7 @@ export const metadata: Metadata = {
     url: "https://dhurta.org",
     siteName: "DHURTA",
     type: "website",
+    images: [{ url: "/dhurta-logo.png", width: 384, height: 384, alt: "Dhurta emblem" }],
   },
 };
 

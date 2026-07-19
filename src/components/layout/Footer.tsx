@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { navLinks, uiLanguages } from "@/lib/data";
@@ -38,9 +39,18 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <span className="font-display text-3xl font-bold text-white">
-              DHU<span className="text-gradient-gold">RTA</span>
-            </span>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/dhurta-logo.png"
+                alt="Dhurta emblem"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain"
+              />
+              <span className="font-display text-3xl font-bold text-white">
+                DHU<span className="text-gradient-gold">RTA</span>
+              </span>
+            </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-light">
               The clever choice for global digital transformation. From Mumbai to
               Manhattan, London to Lagos — we build solutions that outsmart
