@@ -7,7 +7,8 @@ import FutureSectors from "@/components/ventures/FutureSectors";
 export const metadata: Metadata = {
   title: "Group Ventures — The Dhurta Group",
   description:
-    "The companies and products of the Dhurta group — Dhurta Browser, Dhurta Connect, and Dhurta Setu — plus the honest roadmap of sectors we are building toward.",
+    "Explore the Dhurta group's shipping products: Dhurta Browser, the open-source zero-telemetry privacy browser; Dhurta Connect, serverless end-to-end encrypted P2P chat, calls & file sharing; and Dhurta Setu, a curated web index — plus our roadmap into IT & cybersecurity, AI, design, infrastructure, and mechanical & electrical engineering.",
+  alternates: { canonical: "https://dhurta.org/ventures/" },
 };
 
 export default function VenturesPage() {

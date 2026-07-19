@@ -101,20 +101,93 @@ const notoTamil = Noto_Sans_Tamil({
   display: "swap",
 });
 
+const siteDescription =
+  "DHURTA is a privacy-first technology group from India — makers of Dhurta Browser (the zero-telemetry open-source web browser), Dhurta Connect (serverless end-to-end encrypted P2P chat, calls & file sharing), and Dhurta Setu (a curated web index). Built on Trust, Technology & Culture — Dhurta is Sanskrit for clever.";
+
 export const metadata: Metadata = {
-  title: "DHURTA — The Clever Choice for Global Digital Transformation",
-  description:
-    "DHURTA delivers clever, world-class digital transformation — strategy, design, and engineering that outsmarts complexity, anywhere in the world.",
+  title: {
+    default: "DHURTA — Privacy-First Technology Group | Browser, Connect & Setu",
+    template: "%s | DHURTA",
+  },
+  description: siteDescription,
   metadataBase: new URL("https://dhurta.org"),
+  keywords: [
+    "Dhurta",
+    "Dhurta Browser",
+    "privacy browser",
+    "zero telemetry browser",
+    "open source browser",
+    "Dhurta Connect",
+    "end-to-end encrypted chat",
+    "P2P messaging",
+    "serverless chat",
+    "Dhurta Setu",
+    "curated web index",
+    "privacy-first software",
+    "Dhurta group",
+    "digital transformation",
+    "Sanskrit clever",
+  ],
+  alternates: { canonical: "https://dhurta.org" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "DHURTA — The Clever Choice for Global Digital Transformation",
-    description:
-      "We don't just build websites and apps. We build clever solutions that outsmart challenges, outpace competitors, and outperform expectations — anywhere in the world.",
+    title: "DHURTA — Privacy-First Technology Group",
+    description: siteDescription,
     url: "https://dhurta.org",
     siteName: "DHURTA",
     type: "website",
+    locale: "en_US",
     images: [{ url: "/dhurta-logo.png", width: 384, height: 384, alt: "Dhurta emblem" }],
   },
+  twitter: {
+    card: "summary",
+    title: "DHURTA — Privacy-First Technology Group",
+    description:
+      "Makers of Dhurta Browser (zero telemetry), Dhurta Connect (E2E-encrypted P2P chat) and Dhurta Setu. Trust · Technology · Culture.",
+    images: ["/dhurta-logo.png"],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DHURTA",
+  alternateName: "The Dhurta Group",
+  url: "https://dhurta.org",
+  logo: "https://dhurta.org/dhurta-logo.png",
+  description: siteDescription,
+  email: "contact@dhurta.org",
+  slogan: "The Clever Choice — Trust, Technology, Culture",
+  sameAs: ["https://dhurta.com", "https://github.com/prashantkeshr/Dhurta"],
+  brand: [
+    {
+      "@type": "Brand",
+      name: "Dhurta Browser",
+      description:
+        "Flagship open-source, privacy-first web browser with zero telemetry.",
+      url: "https://github.com/prashantkeshr/Dhurta",
+    },
+    {
+      "@type": "Brand",
+      name: "Dhurta Connect",
+      description:
+        "Zero-server, end-to-end encrypted peer-to-peer chat, calls and file sharing.",
+    },
+    {
+      "@type": "Brand",
+      name: "Dhurta Setu",
+      description: "A hand-curated web index — an information bridge to the useful internet.",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -128,6 +201,10 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${notoSans.variable} ${notoDevanagari.variable} ${notoBengali.variable} ${notoArabic.variable} ${notoSC.variable} ${notoJP.variable} ${notoKR.variable} ${notoThai.variable} ${notoTamil.variable} h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-navy text-white antialiased overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
