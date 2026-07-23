@@ -129,6 +129,9 @@ export const metadata: Metadata = {
     "Sanskrit clever",
   ],
   alternates: { canonical: "https://dhurta.org" },
+  verification: {
+    other: { "msvalidate.01": "E50EBC1ACA98B59E247E744077DA0EF8" },
+  },
   robots: {
     index: true,
     follow: true,
